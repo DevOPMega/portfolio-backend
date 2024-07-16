@@ -1,4 +1,5 @@
 const { initializeApp } = require("firebase/app");
+const { getFirestore } = require("firebase/firestore");
 // const { getAnalytics } =  require("firebase/analytics");
 const {
   getAuth,
@@ -25,7 +26,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
+const db = getFirestore(app);
 
 // Firebase Service Initialize
 admin.initializeApp({
@@ -40,5 +41,6 @@ module.exports = {
   signOut,
   sendEmailVerification,
   sendPasswordResetEmail,
-  admin
+  admin,
+  db
 }
