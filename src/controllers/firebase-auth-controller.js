@@ -65,9 +65,9 @@ class FirebaseAuthController {
         if (idToken) {
           // Set token in cookies
           res.cookie("access_token", idToken, {
-            // domain: "https://adeshsingh-portfolio.vercel.app",
             maxAge: 8*24*60*60*1000,
-            sameSite: "None"
+            sameSite: "None",
+            secure: true
           });
           res.status(200).json({
             message: "User logged in successfully",
