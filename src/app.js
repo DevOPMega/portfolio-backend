@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 
 const corsOptions = {
-    origin: "https://adeshsingh-portolfio.vercel.app", //included origin as true
+    origin: "https://adeshsingh-portfolio.vercel.app", //included origin as true
     credentials: true, //included credentials as true
 };
 
