@@ -9,11 +9,12 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 
 const corsOptions = {
-    origin: "https://adeshsingh-portfolio.vercel.app", //included origin as true
+    origin: process.env.ORIGIN, //included origin as true
+    methods: "GET,POST,DELETE,PUT,PATCH,HEAD",
     credentials: true, //included credentials as true
 };
 
-
+// Middlewares
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
