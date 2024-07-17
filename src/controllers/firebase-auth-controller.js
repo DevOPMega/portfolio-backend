@@ -65,13 +65,15 @@ class FirebaseAuthController {
         if (idToken) {
           // Set token in cookies
           res.cookie("access_token", idToken, {
+            httpOnly: true,
             maxAge: 8*24*60*60*1000,
             sameSite: "None",
-            secure: true
+            secure: process.env.NODE_ENVIRONMENT === "production"
           });
           res.status(200).json({
             message: "User logged in successfully",
-            userCredential,
+            email: userCredential.user.email,
+            uid: userCredential.user.uid,
           });
         } else {
           // If token not created
