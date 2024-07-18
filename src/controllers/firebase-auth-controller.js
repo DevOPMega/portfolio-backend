@@ -66,8 +66,8 @@ class FirebaseAuthController {
           // Set token in cookies
           res.cookie("access_token", idToken, {
             httpOnly: true,
-            maxAge: 8*24*60*60*1000,
-            sameSite: "None",
+            maxAge: 8*24*60*60*1000, // 8 days
+            sameSite: "Strict",
             secure: process.env.NODE_ENVIRONMENT === "production"
           });
           res.status(200).json({
