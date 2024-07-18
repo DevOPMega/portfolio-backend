@@ -67,8 +67,8 @@ class FirebaseAuthController {
           res.cookie("access_token", idToken, {
             httpOnly: true,
             maxAge: 8*24*60*60*1000, // 8 days
-            sameSite: "Strict",
-            secure: process.env.NODE_ENVIRONMENT === "production"
+            sameSite: "None",
+            secure: true
           });
           res.status(200).json({
             message: "User logged in successfully",
