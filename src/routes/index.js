@@ -10,5 +10,6 @@ router.post("/api/login", firebaseAuthController.loginUser);
 router.post("/api/logout", firebaseAuthController.logoutUser);
 router.post("/api/reset-password", firebaseAuthController.resetPassword);
 router.get("/api/userinfo", verifyToken, FirebaseFirestoreController.getUserUsingUid);
+router.patch("/api/updateuserprofile", verifyToken, FirebaseFirestoreController.updateUserProfile);
 
 module.exports = router;
